@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu Bar</title>
-<style>
-.menu-bar {
-  background-color: #b5a4a4;
-  overflow: hidden;
-}
-.menu-bar a {
-  float: left;
-  display: block;
-  color: rgb(21, 20, 20);
-  text-align: center;
-  padding: 16px 16px;
-  text-decoration: none;
-}
-.menu-bar a:hover {
-  background-color: #6beae6;
-  color: black;
-}
-</style>
+	<title>Random Background Color</title>
+	<style>
+		/* CSS */
+		body {
+			transition: background-color 0.5s ease;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		#clickme {
+			transition: color 0.5s ease;
+		}
+	</style>
 </head>
 <body>
-<div class="menu-bar">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</div>
-<div style="padding:40px">
-  <h2>This site is created by Praneel Jain</h2>
-  <p>Content Area</p>
-</div>
+	<!-- HTML -->
+	<button id="clickme">Click me!</button>
+
+	<script>
+		// JavaScript
+		const button = document.getElementById("clickme");
+
+		button.addEventListener("click", () => {
+			let rndColorBg = getRandomHexColor();
+			let rndColorText = getRandomHexColor();
+			document.body.style.backgroundColor = rndColorBg;
+			button.style.color = rndColorText;
+		});
+
+		function getRandomHexColor() {
+			let hex = Math.floor(Math.random() * 16777215).toString(16);
+			return "#" + hex.padStart(6, "0");
+		}
+	</script>
 </body>
 </html>
